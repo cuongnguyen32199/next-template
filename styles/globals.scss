@@ -32,3 +32,52 @@ html, body {
     text-transform: uppercase;
   }
 }
+
+.main {
+  --sidebar-width: 250px;
+
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, var(--sidebar-width)) 1fr;
+
+  &__left {
+    padding: 10px;
+    color: #ffffff;
+    background-color: #3b82f6;
+  }
+
+  &__right {
+    margin: 20px;
+    border-radius: 10px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.menu {
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.5 ease-out, color 0.5 ease-out;
+    margin-bottom: 5px;
+
+    > svg {
+      font-size: 24px;
+    }
+
+    &:hover, &.active {
+      color: #3b82f6;
+      background-color: #ffffff;
+    }
+  }
+}
