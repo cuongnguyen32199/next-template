@@ -1,6 +1,6 @@
-import express, { Request, Response } from 'express';
 import next from 'next';
 import cookieParser from 'cookie-parser';
+import express, { Request, Response } from 'express';
 
 import { Logger } from './lib/logger';
 import { connect } from './lib/database';

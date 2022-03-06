@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
+
 import { PRIVATE_KEY } from '../lib/consts';
 
 export default async function auth(req: Request, res: Response, next: NextFunction) {
