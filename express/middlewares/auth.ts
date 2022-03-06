@@ -1,18 +1,15 @@
-import path from 'path';
-import { readFileSync } from 'fs';
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
-
-const credential = readFileSync(path.join(process.cwd(), 'credentials', 'secret.pub'), 'utf-8');
+import { PRIVATE_KEY } from '../lib/consts';
 
 export default async function auth(req: Request, res: Response, next: NextFunction) {
   try {
-    const token = req.headers?.authorization;
+    const token = req.cookies?.authorization;
 
-    if (!token) throw new Error('Invalid credentials');
+    if (!token) throw new Error('Missing credentials');
 
-    const verified = jwt.verify(token, credential);
-    console.log({ verified });
+    const verified = jwt.verify(token, PRIVATE_KEY);
+    req.$user = verified;
     next();
   } catch (error: any) {
     res.status(401).json({ success: false, message: error.message });
