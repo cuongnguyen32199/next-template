@@ -41,5 +41,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# Environment variables
 .env*
+
+# Log files
 *.log
