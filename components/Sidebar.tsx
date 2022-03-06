@@ -6,7 +6,7 @@ export default function Sidebar() {
   return (
     <>
       <div className="logo font-extrabold">
-        <Image className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" height="30px" width="32px" alt="Workflow" />
+        <Image className="mx-auto h-12 w-auto" priority={true} src="/workflow.svg" height="30px" width="32px" alt="Workflow" />
         <span>Next.js</span>
       </div>
       <div className="menu">
