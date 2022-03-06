@@ -1,10 +1,14 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { BsHouse, BsInfoCircle, BsGear, BsPower } from 'react-icons/bs';
 
 export default function Sidebar() {
   return (
     <>
-      <div className="logo">Next.js</div>
+      <div className="logo font-extrabold">
+        <Image className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" height="30px" width="32px" alt="Workflow" />
+        <span>Next.js</span>
+      </div>
       <div className="menu">
         <Link href="/">
           <a className="menu__link">
@@ -12,7 +16,7 @@ export default function Sidebar() {
             <p>Dashboard</p>
           </a>
         </Link>
-        <Link href="/my">
+        <Link href="/account">
           <a className="menu__link">
             <BsInfoCircle />
             <p>Profile</p>
@@ -24,7 +28,7 @@ export default function Sidebar() {
             <p>Settings</p>
           </a>
         </Link>
-        <Link href="/logout">
+        <Link href="/login">
           <a className="menu__link">
             <BsPower />
             <p>Logout</p>

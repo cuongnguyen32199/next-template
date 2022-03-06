@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'variables';
+
 html, body {
   width: 100%;
   min-height: 100vh;
@@ -25,7 +27,7 @@ html, body {
   padding: 10px 20px;
   border: 1px solid rgb(199, 210, 254);
   border-radius: 10px;
-  background-color: white;
+  background-color: var(--white);
 
   &__head {
     font-size: 28px;
@@ -42,9 +44,8 @@ html, body {
   grid-template-columns: minmax(0, var(--sidebar-width)) 1fr;
 
   &__left {
-    padding: 10px;
-    color: #ffffff;
-    background-color: #3b82f6;
+    color: var(--white);
+    background-color: var(--main-color);
   }
 
   &__right {
@@ -56,28 +57,31 @@ html, body {
 .logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 50px;
+  justify-content: flex-start;
+  height: 65px;
+  gap: 10px;
+  padding: 10px;
 }
 
 .menu {
+  padding: 10px;
   &__link {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     font-size: 16px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 6px;
     transition: background-color 0.5 ease-out, color 0.5 ease-out;
     margin-bottom: 5px;
 
     > svg {
-      font-size: 24px;
+      font-size: 20px;
     }
 
     &:hover, &.active {
-      color: #3b82f6;
-      background-color: #ffffff;
+      color: var(--main-color);
+      background-color: var(--white);
     }
   }
 }
