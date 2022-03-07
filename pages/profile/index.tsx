@@ -1,3 +1,4 @@
+import { GetServerSideProps , GetServerSidePropsContext } from 'next';
 import { PaperClipIcon } from '@heroicons/react/solid';
 
 import Layout from '../../components/Layout';
@@ -67,3 +68,9 @@ export default function Profile() {
     </Layout>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext): Promise<any> => {
+  console.log('Cookie', context.req.cookies);
+
+  return Promise.resolve();
+};

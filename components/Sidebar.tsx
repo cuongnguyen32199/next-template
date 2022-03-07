@@ -16,7 +16,7 @@ export default function Sidebar() {
             <p>Dashboard</p>
           </a>
         </Link>
-        <Link href="/account">
+        <Link href="/profile">
           <a className="menu__link">
             <BsInfoCircle />
             <p>Profile</p>
