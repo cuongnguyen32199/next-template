@@ -1,8 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Router from 'next/router';
+
 import { BsHouse, BsInfoCircle, BsGear, BsPower } from 'react-icons/bs';
 
 export default function Sidebar() {
+  const handleLogout = (e: any) => {
+    e.preventDefault();
+    Router.push('/api/users/logout');
+  };
+
   return (
     <>
       <div className="logo font-extrabold">
@@ -28,8 +35,8 @@ export default function Sidebar() {
             <p>Settings</p>
           </a>
         </Link>
-        <Link href="/login">
-          <a className="menu__link">
+        <Link href="/logout">
+          <a className="menu__link" onClick={handleLogout}>
             <BsPower />
             <p>Logout</p>
           </a>

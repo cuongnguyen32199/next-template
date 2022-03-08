@@ -1,7 +1,9 @@
-import { GetServerSideProps , GetServerSidePropsContext } from 'next';
+import axios from 'axios';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { PaperClipIcon } from '@heroicons/react/solid';
 
 import Layout from '../../components/Layout';
+import withAuth from '../../middlewares/withAuth';
 
 export default function Profile() {
   return (
@@ -69,8 +71,4 @@ export default function Profile() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext): Promise<any> => {
-  console.log('Cookie', context.req.cookies);
-
-  return Promise.resolve();
-};
+export const getServerSideProps: GetServerSideProps = (context: GetServerSidePropsContext) => withAuth(context);

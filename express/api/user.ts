@@ -33,6 +33,27 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
   }
 });
 
+router.get('/verify/:token', async (req: Request, res: Response) => {
+  try {
+    const token = req.params?.token;
+    if (!token) throw new Error('Missing credentials');
+
+    const verified = jwt.verify(token, PRIVATE_KEY);
+
+    return res.json({ success: true, payload: verified });
+  } catch (error: any) {
+    return res.json({ success: false, message: error?.message || 'Token expired' });
+  }
+});
+
+router.get('/logout', async (req: Request, res: Response) => {
+  try {
+    return res.cookie('authorization', undefined).redirect('/login');
+  } catch (error: any) {
+    return res.redirect('/login');
+  }
+});
+
 router.use(auth);
 
 router.get('/', async (_: Request, res: Response) => {
