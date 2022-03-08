@@ -25,7 +25,6 @@ app.prepare().then(() => {
   server.use('/api/users', userRoutes);
 
   server.all('*', (req: Request, res: Response) => (handle(req, res)));
-  server.use(auth);
 
   server.listen(PORT, () => {
     logger.info(`Server is running on port ${PORT}`);

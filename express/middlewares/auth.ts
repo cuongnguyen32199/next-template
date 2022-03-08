@@ -13,6 +13,6 @@ export default async function auth(req: Request, res: Response, next: NextFuncti
     req.$user = verified;
     next();
   } catch (error: any) {
-    res.status(401).json({ success: false, message: error.message });
+    res.status(401).json({ success: false, message: error?.message });
   }
 }
