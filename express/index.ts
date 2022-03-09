@@ -6,7 +6,6 @@ import { Logger } from './lib/logger';
 import { connect } from './lib/database';
 
 import userRoutes from './api/user';
-import auth from './middlewares/auth';
 
 const PORT = 3000;
 const logger = Logger.create(module);

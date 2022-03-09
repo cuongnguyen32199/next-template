@@ -29,12 +29,6 @@ export default function Sidebar() {
             <p>Profile</p>
           </a>
         </Link>
-        <Link href="/settings">
-          <a className="menu__link">
-            <BsGear />
-            <p>Settings</p>
-          </a>
-        </Link>
         <Link href="/logout">
           <a className="menu__link" onClick={handleLogout}>
             <BsPower />
