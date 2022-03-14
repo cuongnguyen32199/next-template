@@ -15,9 +15,9 @@ router.post('/login', async (req: Request, res: Response, next: NextFunction) =>
     const encoded = jwt.sign({ email: user.email }, PRIVATE_KEY, { expiresIn: '1d' });
     res.cookie('authorization', encoded);
 
-    return res.json({ success: true, data: user });
+    return res.redirect('/');
   } catch (error: any) {
-    return res.json({ success: false, message: error?.message });
+    return res.redirect('/login');
   }
 });
 
