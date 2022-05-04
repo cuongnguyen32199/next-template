@@ -4,8 +4,10 @@ import { Router, Request, Response, NextFunction } from 'express';
 import auth from './../middlewares/auth';
 import { PRIVATE_KEY } from '../lib/consts';
 import * as usersController from './../controllers/user.controller';
+import { Logger } from '../lib/logger';
 
 const router = Router();
+const logger = Logger.create(module);
 
 router.post('/login', async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -17,6 +19,7 @@ router.post('/login', async (req: Request, res: Response, next: NextFunction) =>
 
     return res.redirect('/');
   } catch (error: any) {
+    logger.error(error?.message);
     return res.redirect('/login');
   }
 });
@@ -29,6 +32,7 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
 
     return res.json({ success: true, data: user });
   } catch (error: any) {
+    logger.error(error?.message);
     return res.json({ success: false, message: error?.message });
   }
 });
@@ -42,6 +46,7 @@ router.get('/verify/:token', async (req: Request, res: Response) => {
 
     return res.json({ success: true, payload: verified });
   } catch (error: any) {
+    logger.error(error?.message);
     return res.json({ success: false, message: error?.message || 'Token expired' });
   }
 });
@@ -50,6 +55,7 @@ router.get('/logout', async (req: Request, res: Response) => {
   try {
     return res.cookie('authorization', undefined).redirect('/login');
   } catch (error: any) {
+    logger.error(error?.message);
     return res.redirect('/login');
   }
 });
@@ -62,6 +68,7 @@ router.get('/', async (_: Request, res: Response) => {
 
     return res.json({ success: true, data: users });
   } catch (error: any) {
+    logger.error(error?.message);
     return res.json({ success: false, message: error?.message });
   }
 });

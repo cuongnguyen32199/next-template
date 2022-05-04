@@ -20,7 +20,7 @@ export default async function withAuth({ req }: GetServerSidePropsContext): Prom
     if (data?.success) {
       return { props: { user: data.payload } };
     } else {
-      console.log('Message', data?.message);
+      console.log('Verify credentials:', data?.message);
       return {
         redirect: {
           permanent: true,

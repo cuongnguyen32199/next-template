@@ -4,6 +4,9 @@ import next from 'next';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import express, { Request, Response } from 'express';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 import { Logger } from './lib/logger';
 import { connect } from './lib/database';
